@@ -1,14 +1,35 @@
-{
-  "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
-}
+{"ProjectID": "1", 
+
+"Name": "Scaffolding and painting.", 
+
+"BuildingID": "1",  
+
+"Status": "closed",  
+
+"StartDate": "2016-12-12T00:00:00", 
+
+"EndDate": "2016-12-14T00:00:00", 
+
+"ContactPerson": "Joe Bloggs", 
+
+"ProjectManager": "Sally Smith", 
+
+"Contractor": "ABC Company", 
+
+"Works": [ 
+
+{"TypeOfWork": "scaffolding", "Status": "done"}, 
+
+{"TypeOfWork": "painting", "Status": "on-going"} 
+
+], 
+
+"Comments": [ 
+
+{"Author": "Johnny Guitar", "Text": "Work completed."}, 
+
+{"Author": "John Doe", "Text": "Problem detected."} 
+
+] 
+
+} 
