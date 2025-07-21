@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>4-Digit Search (Embedded Data)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { font-size: 16px; padding: 5px; width: 80px; }
+    button { padding: 5px 10px; font-size: 16px; }
+    table, th, td { border: 1px solid #ccc; border-collapse: collapse; padding: 8px; }
+    table { margin-top: 20px; width: 100%; }
+  </style>
+</head>
+<body>
+  <h2>Search by 4-Digit ID</h2>
+  <input type="text" id="searchInput" maxlength="4" placeholder="1234" />
+  <button onclick="search()">Search</button>
+
+  <div id="results"></div>
+
+  <script>
+    // Embedded JSON data inside the HTML
+    const jsonData = [
+      { "id": 1234, "name": "Alice Smith", "department": "Sales", "score": 88 },
+      { "id": 2345, "name": "Bob Johnson", "department": "Marketing", "score": 92 },
+      { "id": 1234, "name": "Carlos Lee", "department": "Sales", "score": 79 },
+      { "id": 3456, "name": "Dana White", "department": "HR", "score": 85 },
+      { "id": 4567, "name": "Ella Zhang", "department": "Finance", "score": 95 },
+      { "id": 5678, "name": "Frank O'Hara", "department": "Engineering", "score": 90 }
+    ];
+
+    function search() {
+      const input = document.getElementById('searchInput').value.trim();
+      if (!/^\d{4}$/.test(input)) {
+        alert("Please enter exactly 4 digits.");
+        return;
+      }
+
+      const matches = jsonData.filter(row => row.id.toString() === input);
+      if (matches.length === 0) {
+        document.getElementById('results').innerHTML = "<p>No matching records found.</p>";
+        return;
+      }
+
+      let table = "<table><tr>";
+      Object.keys(matches[0]).forEach(key => {
+        table += `<th>${key}</th>`;
+      });
+      table += "</tr>";
+
+      matches.forEach(row => {
+        table += "<tr>";
+        Object.values(row).forEach(val => {
+          table += `<td>${val}</td>`;
+        });
+        table += "</tr>";
+      });
+      table += "</table>";
+
+      document.getElementById('results').innerHTML = table;
+    }
+  </script>
+</body>
+</html>
